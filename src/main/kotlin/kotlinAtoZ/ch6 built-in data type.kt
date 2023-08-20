@@ -96,12 +96,12 @@ fun main() {
     //2023-08-20T17:35:56.091098
 
     val s = "TODAY IS A sunny day"
-    val res = s.filter{e -> e.isLowerCase()}
+    val res = s.filter { e -> e.isLowerCase() }
     println("result : $res")
     //result : sunnyday
 
     val s1 = "Today is a sunny day, happy"
-    println("replace : ${s1.replace("sunny","rainy")}")
+    println("replace : ${s1.replace("sunny", "rainy")}")
     println("contains : ${s1.contains("Today")}")
 
     val s2 = "독수리, 매, 올빼미, 까치"
@@ -122,5 +122,46 @@ fun checkDataType(value: Any) {
     }
     if (value !is Int) {
         println("$value 은/는 정수 아님")
+    }
+}
+
+
+// 스마트캐스팅이 안될 경우
+class Main {
+    //    private val c: A = B()
+//    private var c:A = B() // 어디서도 바뀔 수 있기 때문에 보장이 안된다. 스마트캐스팅 안됨
+    private val c: A by lazy { B() } // lazy는 외부에서 위임을 시켜주는 것 (접근할때마다 get으로 가져온다)
+    fun main() {
+        val b: A = getB()
+        b.b()
+        if (b is B) {
+            (b as B).b() // 이렇게 안해도 된다.
+            b.b() // 스마트 캐스팅이 된다.
+        }
+
+        if (c is B) {
+            c.b() // c가 B인걸 보장할 수 없다.
+        }
+
+        val a = getB() // 이 경우에만 캐스팅 된다.
+        if (a is B) {
+            a.b()
+        }
+    }
+
+    fun getB(): A {
+        return B()
+    }
+}
+
+open class A {
+    fun a() {
+
+    }
+}
+
+class B : A() {
+    fun b() {
+
     }
 }
