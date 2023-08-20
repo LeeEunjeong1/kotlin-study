@@ -133,14 +133,14 @@ class Main {
     private val c: A by lazy { B() } // lazy는 외부에서 위임을 시켜주는 것 (접근할때마다 get으로 가져온다)
     fun main() {
         val b: A = getB()
-        b.b()
+//        b.b()
         if (b is B) {
             (b as B).b() // 이렇게 안해도 된다.
             b.b() // 스마트 캐스팅이 된다.
         }
 
         if (c is B) {
-            c.b() // c가 B인걸 보장할 수 없다.
+//            c.b() // c가 B인걸 보장할 수 없다.
         }
 
         val a = getB() // 이 경우에만 캐스팅 된다.
