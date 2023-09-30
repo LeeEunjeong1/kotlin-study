@@ -48,18 +48,18 @@ class AB {
     }
 }
 
-open class Base {
+open class Base2 {
     open fun method() = println("베이스 클래스 f()")
 }
 
-class Derived : Base() {
+class Derived2 : Base2() {
     override fun method() = println("파생 클래스 f()")
     inner class Inner {
         fun method() = println("이너클래스 f()")
         fun test() {
             this.method() // 이너 클래스 메서드 참조
-            Derived().method() // 외부 클래스 메서드 참조
-            super@Derived.method() // 슈퍼 클래스 메서드 참조
+            Derived2().method() // 외부 클래스 메서드 참조
+            super@Derived2.method() // 슈퍼 클래스 메서드 참조
         }
     }
 }
@@ -168,7 +168,7 @@ fun main() {
     println(AB().methodsA(10))// 전역 갱신 결과
     println(ar)
 
-    val c1 = Derived()
+    val c1 = Derived2()
     c1.Inner().test()
 
     println(getLength())
