@@ -142,37 +142,37 @@ fun main() {
     println("seq2 원소개수 : ${seq2.count()}")
 
     val words = "가나 다라마바 사아자차".split(" ")
-    iterableCheck(words)
+//    iterableCheck(words)
     val wordsSeq = words.asSequence()
-    seqCheck(wordsSeq)
+//    seqCheck(wordsSeq)
 
 }
 
 
-fun iterableCheck(words: List<String>) {
-    val lengthsList = words
-        .filter {
-            println("iterable filter : $it")
-            it.length > 3
-        }
-        .map {
-            println("iterable 길이 확인 : ${it.length}")
-            it.length
-        }
-    println("----- iterable 처리된 결과 출력 -----")
-    println(lengthsList)
-}
+//fun iterableCheck(words: List<String>) {
+//    val lengthsList = words
+//        .filter {
+//            println("iterable filter : $it")
+//            it.length > 3
+//        }
+//        .map {
+//            println("iterable 길이 확인 : ${it.length}")
+//            it.length
+//        }
+//    println("----- iterable 처리된 결과 출력 -----")
+//    println(lengthsList)
+//}
 
-fun seqCheck(words: Sequence<String>) {
-    val lengthsSequence = words
-        .filter {
-            println("seq filter : $it")
-            it.length > 3
-        }
-        .map {
-            println("seq 길이 확인 : ${it.length}")
-            it.length
-        }
-    println("----- seq 처리된 결과 출력 -----")
-    println(lengthsSequence.toList())
-}
+//fun seqCheck(words: Sequence<String>) {
+//    val lengthsSequence = words
+//        .filter {
+//            println("seq filter : $it")
+//            it.length > 3
+//        }
+//        .map {
+//            println("seq 길이 확인 : ${it.length}")
+//            it.length
+//        }
+//    println("----- seq 처리된 결과 출력 -----")
+//    println(lengthsSequence.toList())
+//}
