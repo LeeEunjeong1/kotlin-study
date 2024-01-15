@@ -1,6 +1,6 @@
 package programmers.level1
 
-fun solution(num: Int): Int {
+fun solution1(num: Int): Int {
     return collatz(num.toLong(),0)
 }
 fun collatz(num:Long,answer:Int):Int{
